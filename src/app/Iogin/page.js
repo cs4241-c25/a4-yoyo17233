@@ -22,7 +22,7 @@ export default function Login() {
       alertedUser = true;
     }
     if (status === "authenticated") {
-      router.push('/timer'); // Redirect authenticated users to the timer page
+      router.push('/timer');
     }
   }, [status, router]);
 

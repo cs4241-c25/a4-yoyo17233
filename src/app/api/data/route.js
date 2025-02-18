@@ -43,10 +43,8 @@ async function getUserIDByEmail(email) {
 
 async function getUserByEmail(email) {
   try {
-    // Find user by email
     const user = await userCollection.findOne({ email });
 
-    // Return the user including the _id (which is the ObjectId)
     return user;
 
   } catch (err) {
@@ -115,7 +113,7 @@ export async function GET(req, res) {
 
     const solves = await solveCollection.find(
       { userID: new ObjectId(user._id)},
-      { projection: { userID: 0 } } // Exclude userID from the result
+      { projection: { userID: 0 } }
     ).toArray();
     console.log("solves found:");
     console.log(solves);

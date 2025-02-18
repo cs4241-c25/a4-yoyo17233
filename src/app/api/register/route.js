@@ -30,7 +30,6 @@ export async function POST(req) {
   console.log("Collection Found");
 
   try {
-    // Check if the email already exists
     const existingUser = await userCollection.findOne({ email });
     if (existingUser) {
       return new Response(JSON.stringify({ success: false, message: "Email is already registered" }), {
@@ -39,7 +38,6 @@ export async function POST(req) {
       });
     }
 
-    // Insert the new user
     await userCollection.insertOne({ email, password });
     return new Response(JSON.stringify({ success: true, message: "Registration successful" }), {
       status: 201,

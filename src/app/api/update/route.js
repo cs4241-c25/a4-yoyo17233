@@ -1,4 +1,3 @@
-// /pages/api/update.js
 import { MongoClient, ObjectId } from "mongodb";
 import { authOptions } from "next-auth/providers/credentials";
 import { getServerSession } from "next-auth"
@@ -13,7 +12,6 @@ async function connectDB() {
 
 async function getUserIdByEmail(email) {
   try {
-    // Find user by email
     console.log("connecting to DB in getUserID");
     connectDB();
     console.log("connexted to DB in getUserID");
@@ -26,7 +24,6 @@ async function getUserIdByEmail(email) {
     console.log("found user");
     console.log(user);
     
-    // Return the user including the _id (which is the ObjectId)
     return user._id;
 
   } catch (err) {
@@ -63,7 +60,7 @@ export async function POST(req, res) {
 
     const solves = await solveCollection.find(
       { userID: userId },
-      { projection: { userID: 0 } } // Exclude userID from the result
+      { projection: { userID: 0 } }
     ).toArray();
     console.log("solves found:");
     console.log(solves);
