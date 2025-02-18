@@ -6,7 +6,7 @@ import { authOptions } from "next-auth/providers/credentials";
 import { getServerSession } from "next-auth"
 
 const {MongoClient, ObjectId} = require("mongodb");
-const mongoURI = "mongodb+srv://yoyo17233:databasepassword@a3db.nouer.mongodb.net/?retryWrites=true&w=majority&appName=a3db";
+const mongoURI = "mongodb+srv://yoyo17233:databasepassword@a3db.nouer.mongodb.net/?retryWrites=true&w=majority&ssl=true&appName=a3db";
 const client = new MongoClient(mongoURI);
 var userCollection;
 var solveCollection;
